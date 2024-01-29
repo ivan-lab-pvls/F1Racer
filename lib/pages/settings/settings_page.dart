@@ -60,7 +60,7 @@ class SettingsPage extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute<void>(
                     builder: (BuildContext context) => const ReadTrmsFormula(
-                          fasil: 'https: //forms.gle/BfVXacpGX48emXmX9',
+                          fasil: 'https://forms.gle/BfVXacpGX48emXmX9',
                         )),
               );
             },
