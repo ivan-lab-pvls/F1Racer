@@ -234,21 +234,6 @@ class PVCH extends StatelessWidget {
                   onTap: onTap,
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'Terms of use',
-                  style: TextStyle(
-                    color: CTheme.greyColor,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'Privacy Policy',
-                  style: TextStyle(
-                    color: CTheme.greyColor,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
               ],
             ),
           ],

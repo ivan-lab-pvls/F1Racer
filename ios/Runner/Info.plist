@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(FLUTTER_BUILD_NAME)</string>
+	<string>2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<string>1.2.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -48,9 +48,9 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>App needs access to photo library to add photos</string>
+	<string>Add access to your photos for setting profile picture</string>
 	<key>NSCameraUsageDescription</key>
-	<string>App needs access to camera to take pictures</string>
+	<string>Add access to your camera for setting profile picture</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>App needs access to microphone</string>
 </dict>
