@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:racing/c_theme.dart';
 import 'package:racing/data/racing_model.dart';
 import 'package:racing/data/racing_repository.dart';
+import 'package:racing/pages/home/details.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -92,92 +93,99 @@ class RacingItem extends StatelessWidget {
   final RacingModel racingModel;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        color: CTheme.darkGreyColor,
-        borderRadius: BorderRadius.circular(12),
+    return GestureDetector(
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => RacingDetailedPage(racingModel: racingModel),
+        ),
       ),
-      padding: const EdgeInsets.symmetric(
-        vertical: 12,
-        horizontal: 16,
-      ),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  'event',
-                  style: TextStyle(color: CTheme.textGreyColor),
-                ),
-              ),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.centerRight,
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 8),
+        decoration: BoxDecoration(
+          color: CTheme.darkGreyColor,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        padding: const EdgeInsets.symmetric(
+          vertical: 12,
+          horizontal: 16,
+        ),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
                   child: Text(
-                    'date',
+                    'event',
                     style: TextStyle(color: CTheme.textGreyColor),
                   ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Row(
-            children: [
-              Expanded(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                        color: Colors.white,
-                      ),
-                      child: Image.network(
-                        racingModel.imageUrl,
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) =>
-                            Container(),
-                      ),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      'date',
+                      style: TextStyle(color: CTheme.textGreyColor),
                     ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        racingModel.eventName.toUpperCase(),
-                        style: const TextStyle(
-                          color: CTheme.whiteColor,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 14,
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    DateFormat('[ dd MMM ] HH:mm').format(racingModel.date),
-                    style: const TextStyle(
-                      color: CTheme.whiteColor,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 14,
-                    ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                Expanded(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: Colors.white,
+                        ),
+                        child: Image.network(
+                          racingModel.imageUrl,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) =>
+                              Container(),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          racingModel.eventName.toUpperCase(),
+                          style: const TextStyle(
+                            color: CTheme.whiteColor,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 14,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      DateFormat('[ dd MMM ] HH:mm').format(racingModel.date),
+                      style: const TextStyle(
+                        color: CTheme.whiteColor,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
